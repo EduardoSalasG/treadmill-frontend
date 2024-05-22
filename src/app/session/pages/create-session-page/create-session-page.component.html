@@ -10,16 +10,16 @@
     </div>
 </div>
 
-<div class="row justify-content-center align-items-center text-center py-3">
+<div class="row justify-content-center align-items-center text-center py-5">
 
-    <div class="col-12 py-2">
+    <div class="col-12 py-3">
 
-        <form class="form" action="">
-            <label for="">¿Cuántos minutos duró la sesión?</label>
-            <input type="number" pattern="[0-9]*">
-            <div class="col-12 py-2">
+        <form class="form">
+            <label for="minutes" class="pb-3">¿Cuántos minutos duró la sesión?</label>
+            <input id="minutes" type="number" pattern="[0-9]*" [formControl]="minutes">
+            <div class="col-12 pt-5">
 
-                <button type="submit" class="btn btn-primary" (onclick)="save()">Guardar</button>
+                <button class="btn btn-primary" (click)="save()">Guardar</button>
 
             </div>
         </form>
