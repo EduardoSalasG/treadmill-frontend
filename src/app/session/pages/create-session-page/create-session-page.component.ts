@@ -1,11 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-create-session-page',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule,],
+  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule, CommonModule],
   templateUrl: './create-session-page.component.html',
   styleUrl: './create-session-page.component.css'
 })
@@ -13,16 +14,24 @@ export class CreateSessionPageComponent {
 
   constructor(private router: Router) { }
 
-  minutes = new FormControl('');
+  createSessionForm = new FormGroup({
+    minutes: new FormControl('', Validators.required)
+  })
 
-  save() {
+
+  onSubmit() {
     //TODO: Llamar al servicio y guardar la sesión:
-    console.log(this.minutes.value)
+    console.log(this.createSessionForm.get('minutes')?.value)
     alert("ok")
 
     //Redireccionar al listado
 
     this.router.navigateByUrl('/session/list')
   }
+
+  get minutes() {
+    return this.createSessionForm.get('minutes');
+  }
+
 
 }

@@ -14,15 +14,19 @@
 
     <div class="col-12 py-3">
 
-        <form class="form">
+        <form class="form" [formGroup]="createMaintenanceForm" (ngSubmit)="onSubmit()">
             <label for="description" class="pb-3">Descripción</label>
-            <input class="ms-4" id="description" type="text" [formControl]="description">
+            <input class="ms-4" id="description" type="text" formControlName="description" required>
             <div class="col-12 pt-5">
 
-                <button class="btn btn-primary" (click)="save()">Guardar</button>
+                <button class="btn btn-primary" type="submit" [disabled]="!createMaintenanceForm.valid">Guardar</button>
 
             </div>
         </form>
+        <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="alert alert-danger">
+            <div *ngIf="description?.errors?.['required']">Description is required.</div>
+        </div>
+
 
     </div>
 

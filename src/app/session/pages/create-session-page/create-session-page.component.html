@@ -14,16 +14,17 @@
 
     <div class="col-12 py-3">
 
-        <form class="form">
+        <form class="form" (ngSubmit)="onSubmit()" [formGroup]="createSessionForm">
             <label for="minutes" class="pb-3">¿Cuántos minutos duró la sesión?</label>
-            <input id="minutes" type="number" pattern="[0-9]*" [formControl]="minutes">
+            <input id="minutes" type="number" pattern="[0-9]*" formControlName="minutes" required>
             <div class="col-12 pt-5">
 
-                <button class="btn btn-primary" (click)="save()">Guardar</button>
+                <button class="btn btn-primary" type="submit" [disabled]="!createSessionForm.valid">Guardar</button>
 
             </div>
         </form>
+        <div *ngIf="minutes?.invalid && (minutes?.dirty || minutes?.touched)" class="alert alert-danger">
+            <div *ngIf="minutes?.errors?.['required']">Minutes is required.</div>
+        </div>
 
     </div>
-
-</div>
