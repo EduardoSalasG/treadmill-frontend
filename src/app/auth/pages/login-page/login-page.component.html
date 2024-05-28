@@ -1,1 +1,32 @@
-LOGIN
+<div class="d-flex align-items-center py-4 bg-body-tertiary">
+
+    <div class="form-signin w-100 m-auto">
+        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+            <h1 class="h3 mb-3 fw-normal">Inicio de sesión</h1>
+
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email" formControlName="email"
+                    placeholder="name@example.com" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" formControlName="password"
+                    placeholder="Password" required>
+                <label for="password">Password</label>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2" type="submit" [disabled]="!loginForm.valid">Iniciar
+                Sesión</button>
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+                <div *ngIf="email?.errors?.['required']">Email is required.</div>
+            </div>
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger">
+                <div *ngIf="password?.errors?.['required']">Password is required.</div>
+            </div>
+
+            <a routerLink="/auth/new-account" routerLinkActive="active">
+                Registrarme</a>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+        </form>
+    </div>
+</div>
