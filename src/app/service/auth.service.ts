@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environment/environment';
 
 export interface RegisterBody {
   email: string;
@@ -51,15 +52,40 @@ export class AuthService {
 
   login(body: LoginBody): Observable<UserLogin> {
 
-    return this.http.post<UserLogin>('http://localhost:3000/api/auth/login', body);
+    return this.http.post<UserLogin>(`${environment.apiUrl}auth/login`, body);
 
   }
 
   signUp(body: RegisterBody) {
 
-    return this.http.post('http://localhost:3000/api/auth/register', body);
+    return this.http.post(`${environment.apiUrl}auth/register`, body);
 
   }
+
+
+  logOut() {
+    this.userLogged = false;
+    this.userLogin = {
+      user: {
+        id: "",
+        name: "",
+        email: "",
+        emailValidated: false,
+        role: [""]
+      },
+      token: ""
+    }
+    this.reloadPage()
+  }
+
+  reloadPage() {
+    window.location.reload()
+  }
+
+  getToken() {
+    return this.userLogin.token;
+  }
+
 
 
 

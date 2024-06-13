@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../../service/auth.service';
 
 @Component({
@@ -12,7 +12,16 @@ import { AuthService } from '../../../service/auth.service';
 })
 export class HeaderComponent {
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService,
+    private router: Router
+  ) {
+
+  }
+
+
+  logOut() {
+    this.authService.logOut();
+    this.router.navigateByUrl('/')
 
   }
 

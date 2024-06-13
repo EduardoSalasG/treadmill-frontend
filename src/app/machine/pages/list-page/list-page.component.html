@@ -22,94 +22,22 @@
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 py-5">
 
+    <!-- FIXME: Convert milisencods into hh:mm:ss-->
+    @for (machine of machines; track $index) {
     <div class="col mb-5">
 
         <div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt=".. .">
             <div class="card-body">
-                <h5 class="card-title">Caminadora</h5>
-                <p class="card-text">Tiempo de uso actual: 3 h</p>
-                <p class="card-text">Tiempo máximo de uso: 40 h</p>
-                <p class="card-text">Tiempo de uso total: 30 h</p>
+                <h5 class="card-title">{{machine.name}}</h5>
+                <p class="card-text">Tiempo de uso actual: {{machine.currentUsedTime }}</p>
+                <p class="card-text">Tiempo máximo de uso: {{machine.limitTime}}ms</p>
+                <p class="card-text">Tiempo de uso total: {{machine.accumulatedUsedTime}}ms</p>
                 <a class="btn btn-primary" routerLink="../1">Mantenimientos</a>
             </div>
         </div>
 
     </div>
-
-    <div class="col mb-5">
-
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt=".. .">
-            <div class="card-body">
-                <h5 class="card-title">Caminadora</h5>
-                <p class="card-text">Tiempo de uso actual: 3 h</p>
-                <p class="card-text">Tiempo máximo de uso: 40 h</p>
-                <p class="card-text">Tiempo de uso total: 30 h</p>
-                <a class="btn btn-primary" routerLink="../2">Mantenimientos</a>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="col mb-5">
-
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt=".. .">
-            <div class="card-body">
-                <h5 class="card-title">Caminadora</h5>
-                <p class="card-text">Tiempo de uso actual: 3 h</p>
-                <p class="card-text">Tiempo máximo de uso: 40 h</p>
-                <p class="card-text">Tiempo de uso total: 30 h</p>
-                <a class="btn btn-primary" routerLink="../3">Mantenimientos</a>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="col mb-5">
-
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt=".. .">
-            <div class="card-body">
-                <h5 class="card-title">Caminadora</h5>
-                <p class="card-text">Tiempo de uso actual: 3 h</p>
-                <p class="card-text">Tiempo máximo de uso: 40 h</p>
-                <p class="card-text">Tiempo de uso total: 30 h</p>
-                <a class="btn btn-primary" routerLink="../4">Mantenimientos</a>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="col mb-5">
-
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt=".. .">
-            <div class="card-body">
-                <h5 class="card-title">Caminadora</h5>
-                <p class="card-text">Tiempo de uso actual: 3 h</p>
-                <p class="card-text">Tiempo máximo de uso: 40 h</p>
-                <p class="card-text">Tiempo de uso total: 30 h</p>
-                <a class="btn btn-primary" routerLink="../5">Mantenimientos</a>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="col mb-5">
-
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt=".. .">
-            <div class="card-body">
-                <h5 class="card-title">Caminadora</h5>
-                <p class="card-text">Tiempo de uso actual: 3 h</p>
-                <p class="card-text">Tiempo máximo de uso: 40 h</p>
-                <p class="card-text">Tiempo de uso total: 30 h</p>
-                <a class="btn btn-primary" routerLink="../6">Mantenimientos</a>
-            </div>
-        </div>
-
-    </div>
+    }
 
 </div>

@@ -20,12 +20,13 @@
 
         </div>
 
-        <div class="col-md-3 col-sm-12 d-flex text-center justify-content-center justify-content-md-end">
+        <div class="col-md-3 col-sm-12 text-center justify-content-center justify-content-md-end">
             @if (!this.authService.userLogged){
-            <button type="button" class="btn btn-outline-primary me-2" routerLink="/auth/login">Iniciar Sesión</button>
+            <button type="button" class="btn btn-outline-primary" routerLink="/auth/login">Iniciar Sesión</button>
             }
             @else {
             <p>Bienvenido, {{this.authService.userLogin.user.name}}</p>
+            <button class="btn btn-outline-primary" (click)="logOut()">Cerrar Sesión</button>
             }
         </div>
 
