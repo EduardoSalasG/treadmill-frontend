@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environment/environment';
 
-export interface GetSessionByMachineAndUserIdBody {
-  machine: string;
+export interface GetSessionBydUserIdBody {
   user: string;
 }
 
@@ -13,23 +12,24 @@ export interface Sessions {
 }
 
 export interface Session {
-  _id: ID;
-  initDate: EndDateClass;
-  endDate: EndDateClass;
+  initDate: Date;
+  endDate: Date;
   duration: number;
-  machine: ID;
-  user: ID;
+  machine: Machine;
+  user: string;
+  id: string;
 }
 
-export interface ID {
-  $oid: string;
+export interface Machine {
+  name: string;
+  id: string;
 }
 
-export interface EndDateClass {
-  $date: Date;
+export interface CreateSession {
+  machine: string;
+  user: string;
+  duration: number;
 }
-
-
 
 
 
@@ -40,11 +40,16 @@ export class SessionService {
 
   constructor(private http: HttpClient) { }
 
+  getSessionByUserId(body: any) {
 
-  //FIXME: INTERCEPTORS MUST BE CREATED
-  getSessionByMachineAndUserId(body: GetSessionByMachineAndUserIdBody) {
+    return this.http.post<Sessions>(`${environment.apiUrl}session/by-user`, body);
 
-    return this.http.post<Sessions>(`${environment.apiUrl}session/by-machine-and-user`, body);
+  }
+
+  //TODO: DEFINIR TIPADO
+  createSession(body: any) {
+
+    return this.http.post(`${environment.apiUrl}session`, body);
 
   }
 

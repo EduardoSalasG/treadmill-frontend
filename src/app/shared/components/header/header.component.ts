@@ -19,9 +19,14 @@ export class HeaderComponent {
   }
 
 
-  logOut() {
-    this.authService.logOut();
-    this.router.navigateByUrl('/')
+  async logOut() {
+    try {
+      this.authService.logOut();
+      this.router.navigateByUrl('/')
+    }
+    catch (error) {
+
+    }
 
   }
 

@@ -24,6 +24,8 @@ export class LoginPageComponent {
     password: new FormControl('', Validators.required),
   })
 
+  error = ""
+
 
   onSubmit() {
     this.login()
@@ -36,23 +38,29 @@ export class LoginPageComponent {
       password: this.password?.value!,
     }
 
-    console.log(body)
-
     try {
 
-      this.authService.login(body).subscribe((res) => {
-        this.authService.userLogin = res
-        console.log(this.authService.userLogin)
+      this.authService.login(body).subscribe({
+        next: (res: any) => {
+          console.log(res)
 
-        if (this.authService.userLogin.token !== "") {
-          this.authService.userLogged = true
-          this.router.navigateByUrl("/session")
+          this.authService.userLogin = res
+
+          if (this.authService.userLogin.token !== "") {
+            this.authService.userLogged = true
+            this.router.navigateByUrl("/session")
+          }
+
+        },
+        error: error => {
+          if (error.status == 400) {
+            this.error = 'Correo o contraseña incorrecta'
+          }
+          console.log("Este es el error", error)
         }
-
       })
-
-    } catch (error) {
-
+    }
+    catch (error) {
     }
 
   }

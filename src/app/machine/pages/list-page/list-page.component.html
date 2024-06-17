@@ -22,17 +22,17 @@
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 py-5">
 
-    <!-- FIXME: Convert milisencods into hh:mm:ss-->
     @for (machine of machines; track $index) {
     <div class="col mb-5">
 
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt=".. .">
+            <img src="../../../../assets/caminadora.webp" class="card-image" alt=".. .">
             <div class="card-body">
                 <h5 class="card-title">{{machine.name}}</h5>
-                <p class="card-text">Tiempo de uso actual: {{machine.currentUsedTime }}</p>
-                <p class="card-text">Tiempo máximo de uso: {{machine.limitTime}}ms</p>
-                <p class="card-text">Tiempo de uso total: {{machine.accumulatedUsedTime}}ms</p>
+                <p class="card-text">Tiempo de uso actual: {{convertToHHMMSS(machine.currentUsedTime)}}
+                </p>
+                <p class="card-text">Tiempo máximo de uso: {{convertToHHMMSS(machine.limitTime)}}</p>
+                <p class="card-text">Tiempo de uso total: {{convertToHHMMSS(machine.accumulatedUsedTime)}}</p>
                 <a class="btn btn-primary" routerLink="../1">Mantenimientos</a>
             </div>
         </div>

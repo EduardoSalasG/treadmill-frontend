@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MachineService } from '../../../service/machine.service';
 import { CommonModule } from '@angular/common';
+import { converter } from '../../../shared/functions';
+
 
 @Component({
   selector: 'app-list-page',
@@ -12,18 +14,18 @@ import { CommonModule } from '@angular/common';
 })
 export class ListPageComponent {
 
-  constructor(private machineService: MachineService) {
+  constructor(private machineService: MachineService,
+
+  ) {
     this.machineService.getMachines().subscribe(res => {
       this.machines = res.machines
-      console.log(this.machines)
     })
   }
 
   machines: any = []
 
-
-
-
-
+  convertToHHMMSS(number: number) {
+    return converter.convertToHHMMSS(number)
+  }
 
 }

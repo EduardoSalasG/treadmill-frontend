@@ -16,7 +16,8 @@ export interface LoginBody {
 
 export interface UserLogin {
   user: User;
-  token: string;
+  token?: string;
+  error?: string
 }
 
 export interface User {
@@ -43,7 +44,9 @@ export class AuthService {
       emailValidated: false,
       role: [""]
     },
-    token: ""
+    token: "",
+    error: ""
+
 
   }
 

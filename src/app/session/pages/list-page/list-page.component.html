@@ -33,27 +33,15 @@
             </tr>
         </thead>
         <tbody>
+            @for (session of sessions; track $index) {
             <tr>
-                <th scope="row">Viernes 10 de mayo 2024</th>
-                <td>30 minutos</td>
-                <td>16:35</td>
-                <td>17:05</td>
-                <td>Caminadora 5577</td>
+                <th scope="row">{{session.initDate | date:'fullDate'}}</th>
+                <td>{{convert(session.duration)}}</td>
+                <td>{{session.initDate | date:'shortTime'}}</td>
+                <td>{{session.endDate | date:'shortTime'}}</td>
+                <td>{{session.machine.name}}</td>
             </tr>
-            <tr>
-                <th scope="row">Sábado 12 de mayo 2024</th>
-                <td>35 minutos</td>
-                <td>16:35</td>
-                <td>17:10</td>
-                <td>Caminadora 5577</td>
-            </tr>
-            <tr>
-                <th scope="row">Domingo 13 de mayo 2024</th>
-                <td>20 minutos</td>
-                <td>16:35</td>
-                <td>16:55</td>
-                <td>Caminadora 5577</td>
-            </tr>
+            }
         </tbody>
     </table>
 
