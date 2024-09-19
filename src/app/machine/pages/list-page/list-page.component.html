@@ -33,7 +33,7 @@
                 </p>
                 <p class="card-text">Tiempo máximo de uso: {{convertToHHMMSS(machine.limitTime)}}</p>
                 <p class="card-text">Tiempo de uso total: {{convertToHHMMSS(machine.accumulatedUsedTime)}}</p>
-                <a class="btn btn-primary" routerLink="../1">Mantenimientos</a>
+                <a class="btn btn-primary" routerLink='maintenance/list?machine={{machine.id}}'>Mantenimientos</a>
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environments } from '../../environments/environments';
 
 export interface GetSessionBydUserIdBody {
   user: string;
@@ -42,14 +42,14 @@ export class SessionService {
 
   getSessionByUserId(body: any) {
 
-    return this.http.post<Sessions>(`${environment.apiUrl}session/by-user`, body);
+    return this.http.post<Sessions>(`${environments.baseURL}session/by-user`, body);
 
   }
 
   //TODO: DEFINIR TIPADO
   createSession(body: any) {
 
-    return this.http.post(`${environment.apiUrl}session`, body);
+    return this.http.post(`${environments.baseURL}session`, body);
 
   }
 

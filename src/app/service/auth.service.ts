@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environments } from '../../environments/environments';
 
 export interface RegisterBody {
   email: string;
@@ -55,13 +55,13 @@ export class AuthService {
 
   login(body: LoginBody): Observable<UserLogin> {
 
-    return this.http.post<UserLogin>(`${environment.apiUrl}auth/login`, body);
+    return this.http.post<UserLogin>(`${environments.baseURL}auth/login`, body);
 
   }
 
   signUp(body: RegisterBody) {
 
-    return this.http.post(`${environment.apiUrl}auth/register`, body);
+    return this.http.post(`${environments.baseURL}auth/register`, body);
 
   }
 

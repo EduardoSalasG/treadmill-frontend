@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environments } from '../../environments/environments';
 import { Observable } from 'rxjs';
 
 export interface Machines {
@@ -27,7 +27,7 @@ export class MachineService {
 
   getMachines(): Observable<Machines> {
 
-    return this.http.get<Machines>(`${environment.apiUrl}machine`);
+    return this.http.get<Machines>(`${environments.baseURL}machine`);
   }
 
 

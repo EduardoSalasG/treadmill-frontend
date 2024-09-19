@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MachineService } from '../../../service/machine.service';
 import { CommonModule } from '@angular/common';
@@ -21,6 +21,8 @@ export class ListPageComponent {
       this.machines = res.machines
     })
   }
+
+  @Output()
 
   machines: any = []
 

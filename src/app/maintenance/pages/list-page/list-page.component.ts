@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,5 +9,18 @@ import { RouterLink } from '@angular/router';
   styleUrl: './list-page.component.css'
 })
 export class ListPageComponent {
+
+  @Input() machineId: string = ''
+
+  constructor() { }
+
+
+
+
+
+
+
+
+
 
 }

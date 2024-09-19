@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Error404PageComponent } from './shared/pages/error404-page/error404-page.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -8,15 +9,18 @@ export const routes: Routes = [
     },
     {
         path: 'machine',
-        loadChildren: () => import('./machine/machine.routes').then(r => r.routes)
+        loadChildren: () => import('./machine/machine.routes').then(r => r.routes),
+        canActivate: [AuthGuard]
     },
     {
         path: 'maintenance',
-        loadChildren: () => import('./maintenance/maintenance.routes').then(r => r.routes)
+        loadChildren: () => import('./maintenance/maintenance.routes').then(r => r.routes),
+        canActivate: [AuthGuard]
     },
     {
         path: 'session',
-        loadChildren: () => import('./session/session.routes').then(r => r.routes)
+        loadChildren: () => import('./session/session.routes').then(r => r.routes),
+        canActivate: [AuthGuard]
     },
     {
         path: '404',
