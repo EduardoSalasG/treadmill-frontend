@@ -34,7 +34,7 @@ export class CreateSessionPageComponent {
 
     //Redireccionar al listado
 
-    // this.router.navigateByUrl('/session/list')
+    // this.router.navigate(['/session'])
   }
 
   async createSession() {
@@ -52,9 +52,9 @@ export class CreateSessionPageComponent {
         this.submitResponse = res
         console.log(this.submitResponse)
 
-        if (this.submitResponse) {
-          this.router.navigateByUrl("/session")
-        }
+        // if (this.submitResponse) {
+        //   this.router.navigate(["/session"])
+        // }
 
       })
 
@@ -62,6 +62,10 @@ export class CreateSessionPageComponent {
 
     }
 
+  }
+
+  exitModal() {
+    this.router.navigate(['/session'])
   }
 
 

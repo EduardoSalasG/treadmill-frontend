@@ -1,3 +1,4 @@
 export const environments = {
-    baseURL: 'http://www.treadmill-backend-production.up.railway.app/',
+    production: true,
+    baseURL: 'https://treadmill-backend-production.up.railway.app/api/',
 };

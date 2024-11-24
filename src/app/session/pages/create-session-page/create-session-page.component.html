@@ -10,7 +10,8 @@
                 Sesión guardada con éxito
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    (click)="exitModal()">Cerrar</button>
             </div>
         </div>
     </div>
@@ -43,7 +44,7 @@
             </div>
         </form>
         <div *ngIf="minutes?.invalid && (minutes?.dirty || minutes?.touched)" class="alert alert-danger">
-            <div *ngIf="minutes?.errors?.['required']">Minutes is required.</div>
+            <div *ngIf="minutes?.errors?.['required']">La sesión debe tener una duración. </div>
         </div>
 
     </div>
