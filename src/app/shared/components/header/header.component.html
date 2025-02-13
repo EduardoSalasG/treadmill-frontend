@@ -11,12 +11,14 @@
         </div>
 
         <div class="col-md-6 col-sm-12">
-
+            @if (this.authService.userLogged) {
             <ul class="nav justify-content-center">
                 <li><a class="nav-link px-2 link-secondary" routerLink="/session">Sessions</a></li>
                 <li><a class="nav-link px-2 link-dark" routerLink="/machine">Machine</a></li>
                 <li><a class="nav-link px-2 link-dark" routerLink="/maintenance">Maintenance</a></li>
             </ul>
+            }
+
 
         </div>
 
