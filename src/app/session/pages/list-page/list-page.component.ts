@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SessionService } from '../../../service/session.service';
-import { AuthService } from '../../../service/auth.service';
+import { SessionService } from '../../shared/session.service';
+import { AuthService } from '../../../auth/shared/auth.service';
 import { CommonModule } from '@angular/common';
 import { converter } from '../../../shared/functions';
 

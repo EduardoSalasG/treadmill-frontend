@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { SessionService } from '../../../service/session.service';
-import { AuthService } from '../../../service/auth.service';
+import { SessionService } from '../../shared/session.service';
+import { AuthService } from '../../../auth/shared/auth.service';
 
 @Component({
   selector: 'app-create-session-page',

@@ -1,1 +1,47 @@
-<p>register-page works!</p>
+<div class="d-flex align-items-center py-4 bg-body-tertiary">
+
+    <div class="form-signin w-100 m-auto">
+        <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
+            <h1 class="h3 mb-3 fw-normal">Registro</h1>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nombre Apellido"
+                    required>
+                <label for="name">Nombre</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" formControlName="email"
+                    placeholder="name@example.com" required>
+                <label for="email">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="password" formControlName="password"
+                    placeholder="Password" required>
+                <label for="password">Password</label>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2" type="submit" [disabled]="!signUpForm.valid">Registrarme</button>
+
+            <div class="py-2 text-center">
+
+                <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert alert-danger">
+                    <div *ngIf="name?.errors?.['required']">Debe ingresar nombre</div>
+                </div>
+
+                <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+                    <div *ngIf="email?.errors?.['required']">Debe ingresar email</div>
+                    <div *ngIf="email?.errors?.['email']">Debe ingresar email</div>
+                </div>
+                <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger">
+                    <div *ngIf="password?.errors?.['required']">Debe ingresar contraseña</div>
+                </div>
+                <div *ngIf="error!= ''" class="alert alert-danger">
+                    {{this.error}}
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>

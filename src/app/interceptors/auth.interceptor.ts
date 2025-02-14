@@ -1,5 +1,5 @@
 import { HttpEvent, HttpHandlerFn, HttpInterceptor, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../auth/shared/auth.service';
 import { Observable } from 'rxjs';
 import { inject } from '@angular/core';
 
